@@ -15,6 +15,7 @@ export class GameComponent implements OnInit {
   public citation:string;
   public authorArray:any;
   public authorArrayLenght:number;
+
   constructor(private getRandomQuoteService:GetRandomQuoteService, private getAllAuthorsService:GetAllAuthorsService ) { }
 
 
@@ -35,8 +36,9 @@ export class GameComponent implements OnInit {
         this.authorArray = value._embedded.tag;
         this.authorArray.forEach(element => console.log(element.value));
         this.authorArrayLenght = value.total;
+        console.log(this.getRandomInt(this.authorArrayLenght));
       }));
-      console.log(this.getRandomInt(this.authorArrayLenght));
+
 
   }
 
