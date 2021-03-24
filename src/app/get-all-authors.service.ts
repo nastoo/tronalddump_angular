@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Authors } from '../app/models/Authors';
 import {HttpClient} from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
-import { Quote } from '../app/models/Quote';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GetRandomQuoteService {
+export class GetAllAuthorsService {
 
   constructor(private http:HttpClient) { }
 
-  public getRandomQuote() {
-    return this.http.get<Quote>('https://www.tronalddump.io/random/quote');
+  public getAuthorsList() {
+    return this.http.get<Authors>('https://api.tronalddump.io/tag');
   }
-
 }
