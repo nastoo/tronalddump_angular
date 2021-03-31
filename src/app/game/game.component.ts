@@ -112,13 +112,19 @@ export class GameComponent implements OnInit {
         return Math.floor(Math.random() * Math.floor(max));
     }
 
+
+    // Comment mettre un feedback si réussi / échoué ?
     public isAnswerCorrect(subject: string) {
         if (subject === this.citationAuteur) {
-            console.log("C'est cool ! ");
+            console.log("C'est cool !");
             this.score++;
+            this.getNewQuote();
+
 
         } else {
             console.log("You suck");
+            this.score = this.score - 0.25;
+            this.getNewQuote();
         }
     }
 
