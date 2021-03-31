@@ -113,7 +113,7 @@ export class GameComponent implements OnInit {
     }
 
 
-    // Comment mettre un feedback si réussi / échoué ?
+    // Mettre un attribut réponse qui sera affiché dans la modal, que la réponse soit bonne ou non
     public isAnswerCorrect(subject: string) {
         if (subject === this.citationAuteur) {
             console.log("C'est cool !");
