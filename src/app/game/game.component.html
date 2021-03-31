@@ -1,4 +1,11 @@
-<div>
-    {{ this.citation }}
-</div>
+<div class="gameContainer">
+    <div>
+        {{ this.citation }}
+    </div>
 
+    <div class="buttons">
+        <button mat-flat-button *ngFor="let subject of this.randomArray">{{ subject }}</button>
+    </div>
+
+
+</div>

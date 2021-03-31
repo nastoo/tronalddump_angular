@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetRandomQuoteService} from "../get-random-quote.service";
-import {compileComponentFromMetadata} from "@angular/compiler";
 import {GetAllAuthorsService} from "../get-all-authors.service";
+import {Tag} from "../models/Authors";
 
 @Component({
   selector: 'app-game',
@@ -13,7 +13,7 @@ export class GameComponent implements OnInit {
   public citationAuteur:string;
   public fakeAuteur:Array<string> = [];
   public citation:string;
-  public authorArray:any;
+  public authorArray:Array<Tag>;
   public authorArrayLenght:number;
   public randomArray:Array<string> = [];
   
@@ -30,6 +30,9 @@ export class GameComponent implements OnInit {
       this.citationAuteur = value.tags[0];
       this.citation = value.value;
       this.getAuthor(this.citationAuteur);
+      if(this.citationAuteur == undefined) {
+          this.getNewQuote();
+      }
       }));
   }
   
@@ -41,23 +44,19 @@ export class GameComponent implements OnInit {
         this.authorArrayLenght = value.total;
         this.fakeAuteur = [];
 
-        let auteur1:string = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
-        let auteur2:string = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+        const filteredAuteursArray = this.authorArray.filter(function (auteur) {
+            return auteur.value != ignoreAuteur
+        });
 
 
+        let auteur1:string = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
+        let auteur2:string = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
 
-        while(auteur1 == ignoreAuteur || auteur2==ignoreAuteur){
-          auteur1 = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
-          auteur2 = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
-        }
-        
-        while(auteur1 == auteur2){
-          auteur2 = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+        while(auteur1 === auteur2) {
+            auteur2 = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
         }
 
-        console.log(this.citationAuteur);
-        
-        this.fakeAuteur.push(this.authorArray[this.getRandomInt(this.authorArrayLenght)].value, this.authorArray[this.getRandomInt(this.authorArrayLenght)].value, ignoreAuteur);
+        this.fakeAuteur.push(auteur1, auteur2, ignoreAuteur);
 
         let fake1:number = this.getRandomInt(this.fakeAuteur.length);
         let fake2:number = this.getRandomInt(this.fakeAuteur.length);
@@ -69,11 +68,12 @@ export class GameComponent implements OnInit {
           fake3 = this.getRandomInt(this.fakeAuteur.length);        
         }
 
+
         this.randomArray[fake1] = this.fakeAuteur[0];
         this.randomArray[fake2] = this.fakeAuteur[1];
         this.randomArray[fake3] = this.fakeAuteur[2];
 
-        console.log(this.randomArray);
+       console.log(this.randomArray);
 
       })
     );

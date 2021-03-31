@@ -1,0 +1,10 @@
+div.buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center; }
+  div.buttons button {
+    margin-left: 1rem;
+    background: #0066CC;
+    color: white; }
+
+/*# sourceMappingURL=game.component.css.map */

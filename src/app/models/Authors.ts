@@ -1,8 +1,10 @@
 export interface Authors {
     total:number,
     _embedded: {
-        tag: {
-            value:string
-        }
+        tag: Tag[]
     }
+}
+
+export interface Tag {
+    value:string
 }
