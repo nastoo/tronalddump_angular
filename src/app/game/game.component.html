@@ -4,7 +4,7 @@
     </div>
 
     <div class="buttons">
-        <button mat-flat-button *ngFor="let subject of this.randomArray">{{ subject }}</button>
+        <button mat-flat-button *ngFor="let subject of this.randomArray" (click)="isAnswerCorrect(subject)">{{ subject }}</button>
     </div>
 
 
