@@ -15,41 +15,68 @@ export class GameComponent implements OnInit {
   public citation:string;
   public authorArray:any;
   public authorArrayLenght:number;
+  public randomArray:Array<string> = [];
   
   constructor(private getRandomQuoteService:GetRandomQuoteService, private getAllAuthorsService:GetAllAuthorsService ) { }
   
   
   ngOnInit(): void {
-    this.getNewQuote();
-    this.getAuthor();
-    
+    this.getNewQuote();    
   }
   
   public getNewQuote() {
-    this.getRandomQuoteService.getRandomQuote().subscribe((value => {
+    this.getRandomQuoteService.getRandomQuote().subscribe(
+      (value => {
       this.citationAuteur = value.tags[0];
       this.citation = value.value;
-    }));
+      this.getAuthor(this.citationAuteur);
+      }));
   }
   
-  public getAuthor() {
-    this.getAllAuthorsService.getAuthorsList().subscribe((value => {
-      let auteur1:string = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
-      let auteur2:string = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+  public getAuthor(ignoreAuteur:string) {
+    this.getAllAuthorsService.getAuthorsList().subscribe(
+      (value => {      
       
-      while(auteur1 == auteur2){
-        auteur2 = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
-      }
-      
-      this.authorArray = value._embedded.tag;
-      this.authorArrayLenght = value.total;
-      this.fakeAuteur = [];
-      
-      this.fakeAuteur.push(this.authorArray[this.getRandomInt(this.authorArrayLenght)].value, this.authorArray[this.getRandomInt(this.authorArrayLenght)].value);
-      console.log(this.fakeAuteur);
-    }), 
-    (err) => console.log(err),
-    () => console.log('toto'));
+        this.authorArray = value._embedded.tag;
+        this.authorArrayLenght = value.total;
+        this.fakeAuteur = [];
+
+        let auteur1:string = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+        let auteur2:string = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+
+
+
+        while(auteur1 == ignoreAuteur || auteur2==ignoreAuteur){
+          auteur1 = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+          auteur2 = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+        }
+        
+        while(auteur1 == auteur2){
+          auteur2 = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+        }
+
+        console.log(this.citationAuteur);
+        
+        this.fakeAuteur.push(this.authorArray[this.getRandomInt(this.authorArrayLenght)].value, this.authorArray[this.getRandomInt(this.authorArrayLenght)].value, ignoreAuteur);
+
+        let fake1:number = this.getRandomInt(this.fakeAuteur.length);
+        let fake2:number = this.getRandomInt(this.fakeAuteur.length);
+        let fake3:number = this.getRandomInt(this.fakeAuteur.length);
+
+        while(fake1 == fake2 || fake1 == fake3 || fake2 == fake3){
+          fake1= this.getRandomInt(this.fakeAuteur.length);
+          fake2 = this.getRandomInt(this.fakeAuteur.length);
+          fake3 = this.getRandomInt(this.fakeAuteur.length);        
+        }
+
+        this.randomArray[fake1] = this.fakeAuteur[0];
+        this.randomArray[fake2] = this.fakeAuteur[1];
+        this.randomArray[fake3] = this.fakeAuteur[2];
+
+        console.log(this.randomArray);
+
+      })
+    );
   }
   
   public getRandomInt(max) {
