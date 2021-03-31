@@ -9,21 +9,22 @@ import {GetAllAuthorsService} from "../get-all-authors.service";
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-
+  
   public citationAuteur:string;
-  public fakeAuteur:Array<string>;
+  public fakeAuteur:Array<string> = [];
   public citation:string;
   public authorArray:any;
   public authorArrayLenght:number;
-
+  
   constructor(private getRandomQuoteService:GetRandomQuoteService, private getAllAuthorsService:GetAllAuthorsService ) { }
-
-
+  
+  
   ngOnInit(): void {
     this.getNewQuote();
     this.getAuthor();
+    
   }
-
+  
   public getNewQuote() {
     this.getRandomQuoteService.getRandomQuote().subscribe((value => {
       this.citationAuteur = value.tags[0];
@@ -32,18 +33,27 @@ export class GameComponent implements OnInit {
   }
   
   public getAuthor() {
-      this.getAllAuthorsService.getAuthorsList().subscribe((value => {
-        this.authorArray = value._embedded.tag;
-        this.authorArray.forEach(element => console.log(element.value));
-        this.authorArrayLenght = value.total;
-        console.log(this.getRandomInt(this.authorArrayLenght));
-      }));
-
-
+    this.getAllAuthorsService.getAuthorsList().subscribe((value => {
+      let auteur1:string = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+      let auteur2:string = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+      
+      while(auteur1 == auteur2){
+        auteur2 = this.authorArray[this.getRandomInt(this.authorArrayLenght)].value;
+      }
+      
+      this.authorArray = value._embedded.tag;
+      this.authorArrayLenght = value.total;
+      this.fakeAuteur = [];
+      
+      this.fakeAuteur.push(this.authorArray[this.getRandomInt(this.authorArrayLenght)].value, this.authorArray[this.getRandomInt(this.authorArrayLenght)].value);
+      console.log(this.fakeAuteur);
+    }), 
+    (err) => console.log(err),
+    () => console.log('toto'));
   }
-
+  
   public getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
-
+  
 }
