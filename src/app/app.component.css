@@ -3,6 +3,7 @@ app-game {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  position: relative; }
 
 /*# sourceMappingURL=app.component.css.map */

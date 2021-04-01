@@ -1,12 +1,63 @@
+.gameContainer {
+  width: 50vw
+}
+
 div.buttons {
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 
 
   & button {
-    margin-left: 1rem;
+    margin-right: 1rem;
     background: #0066CC;
     color:white
+  }
+}
+
+
+h1 {
+  &.dts {
+    font-size: 20px;
+    font-weight: lighter;
+    color: #696d67;
+  }
+}
+
+h2 {
+  &.question {
+    margin-top: 3rem;
+    font-size: 40px;
+    color: #696d67;
+    font-weight: 400
+  }
+}
+
+.citation {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.score {
+  position:absolute;
+  top: 20vh;
+  right:30vh;
+  font-size: 50px;
+  font-weight: bold;
+
+  & .negative {
+    visibility: visible;
+    color: #d74545;
+  }
+  & .positive {
+    visibility: visible;
+    color: #0066CC;
+  }
+  &::after {
+    display: block;
+    content:'points';
+    font-size: initial;
+    font-weight: initial;
+    margin-top: 10px
   }
 }

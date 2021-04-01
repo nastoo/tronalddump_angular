@@ -55,7 +55,7 @@ export class GameComponent implements OnInit {
 
                 differentCases.forEach(possibility => {
                     if (possibility.includes(possibility)) {
-                        string = string.replace(possibility, "_________");
+                        string = string.replace(possibility, " _________ ");
                     }
                 });
             });
