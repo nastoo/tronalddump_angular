@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {GetRandomQuoteService} from "../get-random-quote.service";
-import {GetAllAuthorsService} from "../get-all-authors.service";
+import {GetRandomQuoteService} from "../service/get-random-quote.service";
+import {GetAllAuthorsService} from "../service/get-all-authors.service";
 import {Tag} from "../models/Authors";
 
 @Component({
