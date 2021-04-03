@@ -9,13 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AllTargetsComponent } from './all-targets/all-targets.component';
+import { HistoriqueComponent } from './historique/historique.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    AllTargetsComponent
+    AllTargetsComponent,
+    HistoriqueComponent
   ],
   imports: [
     BrowserModule,

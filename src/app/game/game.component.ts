@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GetRandomQuoteService} from "../service/get-random-quote.service";
 import {GetAllAuthorsService} from "../service/get-all-authors.service";
 import {Tag} from "../models/Authors";
+import {GetScore} from "../service/get-score.service";
 
 @Component({
     selector: 'app-game',
@@ -18,7 +19,7 @@ export class GameComponent implements OnInit {
     public randomArray: Array<string> = [];
     public score: number = 0;
 
-    constructor(private getRandomQuoteService: GetRandomQuoteService, private getAllAuthorsService: GetAllAuthorsService) {
+    constructor(private getRandomQuoteService: GetRandomQuoteService, private getAllAuthorsService: GetAllAuthorsService, private historiqueListe: GetScore,) {
     }
 
 
@@ -118,12 +119,17 @@ export class GameComponent implements OnInit {
         if (subject === this.citationAuteur) {
             console.log("C'est cool !");
             this.score++;
+            //Je garde ici le score en mémoire
+            this.historiqueListe.setScore(this.score);
             this.getNewQuote();
+            
 
 
         } else {
             console.log("You suck");
             this.score = this.score - 0.25;
+            //Je garde ici le score en mémoire
+            this.historiqueListe.setScore(this.score);
             this.getNewQuote();
         }
     }
