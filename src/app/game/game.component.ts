@@ -60,25 +60,29 @@ export class GameComponent implements OnInit {
     }
 
     public searchAndReplaceInString(string: string, elementToSearch: string) {
-        let wordsArray: Array<string> = string.split(" ");
-        let searchingWordsArray: Array<string> = elementToSearch.split(" ");
+        if(elementToSearch != undefined) {
+            let wordsArray: Array<string> = string.split(" ");
+            let searchingWordsArray: Array<string> = elementToSearch.split(" ");
 
-        wordsArray.forEach(word => {
-            searchingWordsArray.forEach(toSearchSingle => {
-                let differentCases: Array<string> = [];
-                differentCases.push(toSearchSingle.toUpperCase());
-                differentCases.push(toSearchSingle.toLowerCase());
-                differentCases.push(((toSearchSingle.substring(0, 1)).toUpperCase()) + ((toSearchSingle.substring(1)).toLowerCase()));
+            wordsArray.forEach(word => {
+                searchingWordsArray.forEach(toSearchSingle => {
+                    let differentCases: Array<string> = [];
+                    differentCases.push(toSearchSingle.toUpperCase());
+                    differentCases.push(toSearchSingle.toLowerCase());
+                    differentCases.push(((toSearchSingle.substring(0, 1)).toUpperCase()) + ((toSearchSingle.substring(1)).toLowerCase()));
 
-                differentCases.forEach(possibility => {
-                    if (possibility.includes(possibility)) {
-                        string = string.replace(possibility, " _________ ");
-                    }
+                    differentCases.forEach(possibility => {
+                        if (possibility.includes(possibility)) {
+                            string = string.replace(possibility, " _________ ");
+                        }
+                    });
                 });
             });
-        });
 
-       return string;
+            return string;
+        }
+
+
 
     }
 
@@ -96,9 +100,15 @@ export class GameComponent implements OnInit {
                     return auteur.value != ignoreAuteur && auteur.value != undefined;
                 });
 
-                filteredAuteursArray
                 let auteur1: string = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
                 let auteur2: string = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
+
+                if(!auteur1) {
+                    auteur1 = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
+                }
+                if(!auteur2) {
+                    auteur1 = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
+                }
 
                 while (auteur1 === auteur2) {
                     auteur2 = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
