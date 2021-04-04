@@ -8,7 +8,7 @@ import { GetScore } from '../service/get-score.service';
 })
 export class HistoriqueComponent implements OnInit {
 
-  public listeScore:any;
+  public listeScore:number;
 
   constructor(private historique:GetScore) { 
     this.listeScore = this.historique.getScore();

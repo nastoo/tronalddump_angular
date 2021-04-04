@@ -24,6 +24,11 @@ export class GameComponent implements OnInit {
 
 
     ngOnInit(): void {
+        if(this.historiqueListe.getScore() == undefined){
+            this.score = 0;
+        }else{
+            this.score = this.historiqueListe.getScore();
+        }
         this.getNewQuote();
     }
 
@@ -38,7 +43,8 @@ export class GameComponent implements OnInit {
                 }
                 this.citation = this.searchAndReplaceInString(this.citation, this.citationAuteur);
 
-            }));
+            })
+        );
 
     }
 
