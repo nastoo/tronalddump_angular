@@ -17,7 +17,8 @@ import { HistoriqueComponent } from './historique/historique.component';
     AppComponent,
     GameComponent,
     AllTargetsComponent,
-    HistoriqueComponent
+    HistoriqueComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,9 @@ import {GetRandomQuoteService} from "../service/get-random-quote.service";
 import {GetAllAuthorsService} from "../service/get-all-authors.service";
 import {Tag} from "../models/Authors";
 import {GetScore} from "../service/get-score.service";
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {connectableObservableDescriptor} from "rxjs/internal/observable/ConnectableObservable";
+
 
 @Component({
     selector: 'app-game',
@@ -19,6 +21,7 @@ export class GameComponent implements OnInit {
     public authorArrayLenght: number;
     public randomArray: Array<string> = [];
     public score: number = 0;
+    public answer:boolean;
 
     constructor(private getRandomQuoteService: GetRandomQuoteService, private getAllAuthorsService: GetAllAuthorsService, private historiqueListe: GetScore,) {
     }
@@ -38,6 +41,8 @@ export class GameComponent implements OnInit {
     }
 
     public getNewQuote() {
+        // On reset la reponse
+        this.answer = undefined;
         this.getRandomQuoteService.getRandomQuote().subscribe(
             (value => {
                 this.citationAuteur = value.tags[0];
@@ -59,7 +64,6 @@ export class GameComponent implements OnInit {
         let searchingWordsArray: Array<string> = elementToSearch.split(" ");
 
         console.log(searchingWordsArray);
-// TODO : ajout d'une condition pour ne pas entrer inutilement dans la boucle et provoquer des erreurs
         wordsArray.forEach(word => {
             searchingWordsArray.forEach(toSearchSingle => {
                 let differentCases: Array<string> = [];
@@ -93,7 +97,7 @@ export class GameComponent implements OnInit {
                     return auteur.value != ignoreAuteur && auteur.value != undefined;
                 });
 
-
+                filteredAuteursArray
                 let auteur1: string = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
                 let auteur2: string = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
 
@@ -134,17 +138,28 @@ export class GameComponent implements OnInit {
             this.score++;
             //Je garde ici le score en mémoire
             this.historiqueListe.setScore(this.score);
-            this.getNewQuote();
-            
-
-
+            this.answer = true;
+           // this.getNewQuote();
         } else {
             console.log("Mauvaise réponse :(");
             this.score = this.score - 0.25;
             //Je garde ici le score en mémoire
             this.historiqueListe.setScore(this.score);
-            this.getNewQuote();
+            this.answer = false;
+            //this.feedbackFalse();
+           // this.getNewQuote();
         }
+    }
+
+    // Feedback après la réponse
+    public feedback() {
+        if (this.answer) {
+            return "This is true !";
+        } else {
+            return `This is false :( Actually, the answer is ${this.citationAuteur} !`;
+        }
+
+
     }
 
 
