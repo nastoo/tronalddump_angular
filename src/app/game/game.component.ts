@@ -138,14 +138,12 @@ export class GameComponent implements OnInit {
             this.score++;
             //Je garde ici le score en mémoire
             this.historiqueListe.setScore(this.score);
-           // this.getNewQuote();
         } else {
             this.answer = false;
             this.openDialog();
             this.score = this.score - 0.25;
             //Je garde ici le score en mémoire
             this.historiqueListe.setScore(this.score);
-           // this.getNewQuote();
         }
     }
 
