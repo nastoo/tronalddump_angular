@@ -29,6 +29,10 @@ export class GameComponent implements OnInit {
         }else{
             this.score = this.historiqueListe.getScore();
         }
+
+        document.getElementById('firstLink').style.color = '#0066CC';
+        document.getElementById('secondLink').style.color = '#3F9AF5';
+
         this.getNewQuote();
     }
 
@@ -51,7 +55,6 @@ export class GameComponent implements OnInit {
     public searchAndReplaceInString(string: string, elementToSearch: string) {
         let wordsArray: Array<string> = string.split(" ");
         let searchingWordsArray: Array<string> = elementToSearch.split(" ");
-        console.log(wordsArray);
 
         wordsArray.forEach(word => {
             searchingWordsArray.forEach(toSearchSingle => {
@@ -108,8 +111,6 @@ export class GameComponent implements OnInit {
                 this.randomArray[fake1] = this.fakeAuteur[0];
                 this.randomArray[fake2] = this.fakeAuteur[1];
                 this.randomArray[fake3] = this.fakeAuteur[2];
-
-                console.log(this.randomArray);
 
             })
         );
