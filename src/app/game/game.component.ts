@@ -3,6 +3,7 @@ import {GetRandomQuoteService} from "../service/get-random-quote.service";
 import {GetAllAuthorsService} from "../service/get-all-authors.service";
 import {Tag} from "../models/Authors";
 import {GetScore} from "../service/get-score.service";
+import {connectableObservableDescriptor} from "rxjs/internal/observable/ConnectableObservable";
 
 @Component({
     selector: 'app-game',
@@ -54,7 +55,10 @@ export class GameComponent implements OnInit {
 
     public searchAndReplaceInString(string: string, elementToSearch: string) {
         let wordsArray: Array<string> = string.split(" ");
+        console.log(elementToSearch);
         let searchingWordsArray: Array<string> = elementToSearch.split(" ");
+
+        console.log(searchingWordsArray);
 
         wordsArray.forEach(word => {
             searchingWordsArray.forEach(toSearchSingle => {
@@ -80,12 +84,16 @@ export class GameComponent implements OnInit {
             (value => {
 
                 this.authorArray = value._embedded.tag;
+
                 this.authorArrayLenght = value.total;
                 this.fakeAuteur = [];
 
+
+                // retirer la réponse de la liste des suggestions, pour éviter de dupliquer les réponses + les auteurs indéfinis
                 const filteredAuteursArray = this.authorArray.filter(function (auteur) {
-                    return auteur.value != ignoreAuteur
+                    return auteur.value != ignoreAuteur && auteur.value != undefined;
                 });
+
 
 
                 let auteur1: string = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
@@ -107,7 +115,6 @@ export class GameComponent implements OnInit {
                     fake3 = this.getRandomInt(this.fakeAuteur.length);
                 }
 
-
                 this.randomArray[fake1] = this.fakeAuteur[0];
                 this.randomArray[fake2] = this.fakeAuteur[1];
                 this.randomArray[fake3] = this.fakeAuteur[2];
@@ -116,12 +123,13 @@ export class GameComponent implements OnInit {
         );
     }
 
+
     public getRandomInt(max) {
         return Math.floor(Math.random() * Math.floor(max));
     }
 
 
-    // Mettre un attribut réponse qui sera affiché dans la modal, que la réponse soit bonne ou non
+    // TODO : Mettre un attribut réponse qui sera affiché dans la modal, que la réponse soit bonne ou non
     public isAnswerCorrect(subject: string) {
         if (subject === this.citationAuteur) {
             console.log("C'est cool !");

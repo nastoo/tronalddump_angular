@@ -1,9 +1,21 @@
-app-game {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; }
+nav {
+  position: relative;
+  z-index: 900; }
+  nav a {
+    position: absolute;
+    writing-mode: vertical-lr;
+    text-decoration: none;
+    color: #3F9AF5;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-size: large; }
+    nav a#firstLink {
+      right: 1.5vw;
+      top: 30vh; }
+    nav a#secondLink {
+      right: 1.5vw;
+      top: 40vh; }
+    nav a:hover {
+      color: #0066CC; }
 
 /*# sourceMappingURL=app.component.css.map */
