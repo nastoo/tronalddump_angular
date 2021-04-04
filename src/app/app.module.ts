@@ -10,6 +10,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AllTargetsComponent } from './all-targets/all-targets.component';
 import { HistoriqueComponent } from './historique/historique.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.component';
+
+
 
 
 @NgModule({
@@ -18,6 +22,7 @@ import { HistoriqueComponent } from './historique/historique.component';
     GameComponent,
     AllTargetsComponent,
     HistoriqueComponent,
+    FeedbackDialogComponent,
 
   ],
   imports: [
@@ -27,8 +32,11 @@ import { HistoriqueComponent } from './historique/historique.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FeedbackDialogComponent]
+
 })
 export class AppModule { }

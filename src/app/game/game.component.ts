@@ -3,8 +3,9 @@ import {GetRandomQuoteService} from "../service/get-random-quote.service";
 import {GetAllAuthorsService} from "../service/get-all-authors.service";
 import {Tag} from "../models/Authors";
 import {GetScore} from "../service/get-score.service";
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {connectableObservableDescriptor} from "rxjs/internal/observable/ConnectableObservable";
+import {MatDialog } from '@angular/material/dialog';
+// import {connectableObservableDescriptor} from "rxjs/internal/observable/ConnectableObservable";
+import {FeedbackDialogComponent} from "../feedback-dialog/feedback-dialog.component";
 
 
 @Component({
@@ -23,7 +24,7 @@ export class GameComponent implements OnInit {
     public score: number = 0;
     public answer:boolean;
 
-    constructor(private getRandomQuoteService: GetRandomQuoteService, private getAllAuthorsService: GetAllAuthorsService, private historiqueListe: GetScore,) {
+    constructor(private getRandomQuoteService: GetRandomQuoteService, private getAllAuthorsService: GetAllAuthorsService, private historiqueListe: GetScore, public dialog:MatDialog) {
     }
 
 
@@ -60,10 +61,8 @@ export class GameComponent implements OnInit {
 
     public searchAndReplaceInString(string: string, elementToSearch: string) {
         let wordsArray: Array<string> = string.split(" ");
-        console.log(elementToSearch);
         let searchingWordsArray: Array<string> = elementToSearch.split(" ");
 
-        console.log(searchingWordsArray);
         wordsArray.forEach(word => {
             searchingWordsArray.forEach(toSearchSingle => {
                 let differentCases: Array<string> = [];
@@ -134,33 +133,30 @@ export class GameComponent implements OnInit {
     // TODO : Mettre un attribut réponse qui sera affiché dans la modal, que la réponse soit bonne ou non
     public isAnswerCorrect(subject: string) {
         if (subject === this.citationAuteur) {
-            console.log("Bonne réponse :)");
+            this.answer = true;
+            this.openDialog();
             this.score++;
             //Je garde ici le score en mémoire
             this.historiqueListe.setScore(this.score);
-            this.answer = true;
            // this.getNewQuote();
         } else {
-            console.log("Mauvaise réponse :(");
+            this.answer = false;
+            this.openDialog();
             this.score = this.score - 0.25;
             //Je garde ici le score en mémoire
             this.historiqueListe.setScore(this.score);
-            this.answer = false;
-            //this.feedbackFalse();
            // this.getNewQuote();
         }
     }
 
     // Feedback après la réponse
-    public feedback() {
-        if (this.answer) {
-            return "This is true !";
-        } else {
-            return `This is false :( Actually, the answer is ${this.citationAuteur} !`;
-        }
-
-
+    public openDialog() {
+        let dialog = this.dialog.open(FeedbackDialogComponent, { data: { isTruly: this.answer, correctSubject: this.citationAuteur }});
+        console.log(this.answer);
+        console.log(this.citationAuteur);
+        dialog.afterClosed().subscribe(result => {
+            this.getNewQuote();
+        })
     }
-
 
 }
