@@ -59,7 +59,7 @@ export class GameComponent implements OnInit {
         let searchingWordsArray: Array<string> = elementToSearch.split(" ");
 
         console.log(searchingWordsArray);
-
+// TODO : ajout d'une condition pour ne pas entrer inutilement dans la boucle et provoquer des erreurs
         wordsArray.forEach(word => {
             searchingWordsArray.forEach(toSearchSingle => {
                 let differentCases: Array<string> = [];
@@ -84,7 +84,6 @@ export class GameComponent implements OnInit {
             (value => {
 
                 this.authorArray = value._embedded.tag;
-
                 this.authorArrayLenght = value.total;
                 this.fakeAuteur = [];
 
@@ -93,7 +92,6 @@ export class GameComponent implements OnInit {
                 const filteredAuteursArray = this.authorArray.filter(function (auteur) {
                     return auteur.value != ignoreAuteur && auteur.value != undefined;
                 });
-
 
 
                 let auteur1: string = filteredAuteursArray[this.getRandomInt(this.authorArrayLenght)].value;
@@ -132,7 +130,7 @@ export class GameComponent implements OnInit {
     // TODO : Mettre un attribut réponse qui sera affiché dans la modal, que la réponse soit bonne ou non
     public isAnswerCorrect(subject: string) {
         if (subject === this.citationAuteur) {
-            console.log("C'est cool !");
+            console.log("Bonne réponse :)");
             this.score++;
             //Je garde ici le score en mémoire
             this.historiqueListe.setScore(this.score);
@@ -141,7 +139,7 @@ export class GameComponent implements OnInit {
 
 
         } else {
-            console.log("You suck");
+            console.log("Mauvaise réponse :(");
             this.score = this.score - 0.25;
             //Je garde ici le score en mémoire
             this.historiqueListe.setScore(this.score);
