@@ -13,6 +13,7 @@ import { HistoriqueComponent } from './historique/historique.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.component';
 import {MatCardModule} from '@angular/material/card';
+import { SingularTargetComponent } from './singular-target/singular-target.component';
 
 
 
@@ -24,6 +25,7 @@ import {MatCardModule} from '@angular/material/card';
     AllTargetsComponent,
     HistoriqueComponent,
     FeedbackDialogComponent,
+    SingularTargetComponent,
 
   ],
   imports: [
