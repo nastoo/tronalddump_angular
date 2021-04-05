@@ -1,3 +1,8 @@
-
+.container {
+  margin: 10vw 5vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1rem; }
 
 /*# sourceMappingURL=all-targets.component.css.map */

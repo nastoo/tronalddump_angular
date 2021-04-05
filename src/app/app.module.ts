@@ -12,6 +12,7 @@ import { AllTargetsComponent } from './all-targets/all-targets.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -32,7 +33,8 @@ import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.compo
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

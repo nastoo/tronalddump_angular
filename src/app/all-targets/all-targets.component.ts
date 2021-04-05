@@ -29,7 +29,7 @@ export class AllTargetsComponent implements OnInit {
 
         console.log(this.targetArray);
       })
-    )
+    );
   }
 
 }
