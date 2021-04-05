@@ -23,20 +23,12 @@ export class AllTargetsComponent implements OnInit {
   }
 
   public getAllTargets(){
-  //   this.getAllAuthorsService.getAuthorsList().subscribe((value => {
-  //       this.targetArray = value._embedded.tag;
-  //       console.log(this.targetArray);
-  //     });
-  //   );
-  // }
-
-  this.getAllAuthorsService.getAuthorsList().subscribe((value) => {
-    this.targetArray = value._embedded.tag;
-    console.log(this.targetArray);
-  }, (error) => {
-    console.log(error);
-  }, () => {
-
-  });
+    this.getAllAuthorsService.getAuthorsList().subscribe(
+      (value => {
+        this.targetArray = value._embedded.tag;
+        console.log(this.targetArray);
+      })
+    );
+  }
 
 }
