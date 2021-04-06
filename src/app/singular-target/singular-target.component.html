@@ -1,8 +1,7 @@
 <p>singular-target works!</p>
 <p *ngFor="let citation of this.citations">{{ citation }}</p>
-
-<button mat-button (click)="decrementePage()" [disabled]="this.page <= 0">Précédent</button>
-<button mat-button (click)="incrementePage()" [disabled]="(this.page +1) * 10 > this.total">Suivant</button>
-{{ this.page }}
-{{this.total}}
+<div [hidden]="this.total <= 10">
+    <button mat-button (click)="decrementePage()" [disabled]="this.page <= 0">Précédent</button>
+    <button mat-button (click)="incrementePage()" [disabled]="(this.page +1) * 10 > this.total">Suivant</button>
+</div>
 
