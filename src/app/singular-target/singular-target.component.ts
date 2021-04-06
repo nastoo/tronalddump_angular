@@ -14,6 +14,11 @@ import { GetSingleTargetService } from '../service/get-single-target.service';
 export class SingularTargetComponent implements OnInit {
   target$?: Observable<Targets> = undefined;
 
+  public page:number = -1;
+  public total:number = -1;
+  public citations:Array<String> = [];
+  public test:number = 0;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private getTarget: GetSingleTargetService,
@@ -21,21 +26,35 @@ export class SingularTargetComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.params.name) {
-      this.getTarget.getSingleTarget(this.activatedRoute.snapshot.params.name).subscribe(
-        (value => {
+      this.incrementePage();
 
-          for(let $i:number=0;$i<value.count;$i++){
-            console.log(value._embedded.quotes[$i].value);
-          }
-
-        })
-      )
-
-
-      // this.target$ = this.getTarget.getSingleTarget(this.activatedRoute.snapshot.params.name)
-      // .pipe( tap((character)=>{console.log('toto')} ));
     }
 
   }
+  public chercheCitations () {
+    this.getTarget.getSingleTarget(this.activatedRoute.snapshot.params.name, this.page).subscribe(
+        (value => {
+          for(let $i:number=0;$i<value.count;$i++){
+            this.citations.push(value._embedded.quotes[$i].value);
+          }
+        })
+    )
+  }
+  public incrementePage() {
+    this.citations = [];
+    this.page ++;
+    this.chercheCitations();
+    this.test = this.test+10;
+    console.log(this.test);
+  }
+
+  public decrementePage() {
+    this.citations = [];
+    this.page --;
+    this.chercheCitations();
+    this.test =this.test-10;
+  }
+
+
 
 }

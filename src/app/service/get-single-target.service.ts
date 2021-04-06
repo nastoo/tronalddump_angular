@@ -9,8 +9,8 @@ export class GetSingleTargetService {
 
   constructor(private http:HttpClient) { }
 
-  public getSingleTarget(name:string){
-    return this.http.get<Targets>(`https://api.tronalddump.io/search/quote?query=${name}`);
+  public getSingleTarget(name:string, page:number){
+    return this.http.get<Targets>(`https://api.tronalddump.io/search/quote?query=${name}&page=${page}`);
   }
 
 }

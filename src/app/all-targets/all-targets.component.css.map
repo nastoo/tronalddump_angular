@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,UAAW;EACT,MAAM,EAAE,QAAQ;EAChB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;EACrC,kBAAkB,EAAE,IAAI;EACxB,QAAQ,EAAE,IAAI",
+"mappings": "AAAA,UAAW;EACT,MAAM,EAAE,SAAS;EACjB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,gBAAgB;EACvC,kBAAkB,EAAE,IAAI;EACxB,QAAQ,EAAE,IAAI",
 "sources": ["all-targets.component.scss"],
 "names": [],
 "file": "all-targets.component.css"
