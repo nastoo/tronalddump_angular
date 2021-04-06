@@ -6,5 +6,5 @@ export interface Authors {
 }
 
 export interface Tag {
-    value:string
+    value:string;
 }

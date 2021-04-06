@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllTargetsComponent} from './all-targets/all-targets.component';
 import { GameComponent} from './game/game.component';
 import { HistoriqueComponent} from './historique/historique.component';
+import { SingularTargetComponent } from './singular-target/singular-target.component';
 
 
 
 const routes: Routes = [
   {
-    path:'all-targets',
+    path:'targets',
     component: AllTargetsComponent,
   },
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path:'history',
     component: HistoriqueComponent,
+  },
+  {
+    path:'target/:name',
+    component:SingularTargetComponent,
   }
 ];
 

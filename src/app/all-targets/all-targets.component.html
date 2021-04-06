@@ -1,12 +1,14 @@
-<div class="container" [routerLink]="'/target/' + ">
+<div class="container">
     <mat-card class="card" *ngFor="let target of this.targetArray">
         <mat-card-header>
             <mat-card-title>{{target.value}}</mat-card-title>
         </mat-card-header>
         <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <mat-card-actions>
-            <button mat-button>What Tronald said ?</button>
+            <button mat-button [routerLink]="'/target/' + target.value">What Tronald said ?</button>
         </mat-card-actions>
     </mat-card>
 </div>
+
+<p>wORK</p>
 
