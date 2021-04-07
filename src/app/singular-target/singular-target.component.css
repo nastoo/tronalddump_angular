@@ -1,3 +1,26 @@
-
+.singleContainer {
+  margin: 5vh 10vw;
+  column-gap: 2rem;
+  display: flex; }
+  .singleContainer .image {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-grow: 1; }
+    .singleContainer .image img {
+      object-fit: contain; }
+  .singleContainer .desc {
+    flex-grow: 1; }
+    .singleContainer .desc h1 {
+      margin-bottom: 2rem;
+      font-size: 4em;
+      font-weight: 500;
+      color: #696d67; }
+    .singleContainer .desc p {
+      font-size: 1.05rem;
+      line-height: 2rem; }
+    .singleContainer .desc .prev-next {
+      text-align: center;
+      margin-top: 1rem; }
 
 /*# sourceMappingURL=singular-target.component.css.map */

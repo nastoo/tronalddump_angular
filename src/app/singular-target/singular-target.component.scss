@@ -1,0 +1,40 @@
+.singleContainer {
+  margin: 5vh 10vw;
+  column-gap: 2rem;
+  display: flex;
+
+
+  .image{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-grow: 1;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .desc {
+    flex-grow: 1;
+
+    h1 {
+      margin-bottom: 2rem;
+      font-size: 4em;
+      font-weight: 500;
+      color: #696d67;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 2rem;
+    }
+
+    .prev-next {
+      text-align: center;
+      margin-top:1rem;
+    }
+  }
+
+}
+
