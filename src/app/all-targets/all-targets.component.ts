@@ -28,7 +28,7 @@ export class AllTargetsComponent implements OnInit {
         this.targetArray = value._embedded.tag;
 
         this.targetArray.forEach(element => {
-          //console.log(element.value);
+          console.log(element.value);
         });
 
         //console.log(this.targetArray);

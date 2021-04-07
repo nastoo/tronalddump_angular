@@ -17,7 +17,8 @@ export class SingularTargetComponent implements OnInit {
   public page:number = -1;
   public total:number = 0;
   public citations:Array<string> = [];
-  public name:string
+  public name:string;
+  public imageName:string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -35,6 +36,15 @@ export class SingularTargetComponent implements OnInit {
     this.getTarget.getSingleTarget(this.activatedRoute.snapshot.params.name, this.page).subscribe(
         (value => {
           this.name = this.activatedRoute.snapshot.params.name;
+
+          if(this.name.split(" ")[1] == undefined){
+            this.imageName = this.name.split(" ")[0];
+          }else{
+            this.imageName = this.name.split(" ")[0]+this.name.split(" ")[1];;
+          }
+
+          console.log(this.imageName);
+
           for(let $i:number=0;$i<value.count;$i++){
             this.citations.push(value._embedded.quotes[$i].value);
             this.total = value.total;
