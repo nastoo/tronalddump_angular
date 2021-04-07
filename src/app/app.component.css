@@ -68,4 +68,7 @@ nav{
     .main nav a + a {
       margin-top: 2rem; }
 
+app-game {
+  position: relative; }
+
 /*# sourceMappingURL=app.component.css.map */

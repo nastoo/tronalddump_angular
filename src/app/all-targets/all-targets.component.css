@@ -1,8 +1,18 @@
 .container {
-  margin: 10vw 15vh;
   display: grid;
-  grid-template-columns: repeat(3, 0.5fr);
   grid-template-rows: auto;
-  grid-gap: 1rem; }
+  grid-gap: 1rem;
+  margin: 5vh 20vw; }
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin: 10vh 15vw;
+    grid-template-columns: repeat(2, 0.5fr);
+    grid-gap: 1rem; } }
+@media screen and (min-width: 1168px) {
+  .container {
+    margin: 10vh 15vw;
+    grid-template-columns: repeat(3, 0.5fr);
+    grid-gap: 1rem; } }
 
 /*# sourceMappingURL=all-targets.component.css.map */

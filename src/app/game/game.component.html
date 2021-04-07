@@ -1,4 +1,4 @@
-<div class="score" [ngClass]="{'singular': this.score <= 1 && this.score >= -1 }" [hidden]="this.score == 0">
+<div class="score" [ngClass]="{'singular': this.score <= 1 && this.score >= -1 }">
     <span [ngClass]="{'negative': this.score < 0,
                       'positive': this.score > 0}">{{ this.score }}</span>
 </div>

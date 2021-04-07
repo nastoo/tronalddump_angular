@@ -4,10 +4,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; }
+  position: relative;
+  margin-top: 4rem; }
 
+@media screen and (min-width: 768px) {
+  .containerChild {
+    width: 60vw; } }
 .containerChild {
-  width: 60vw; }
+  width: 85vw; }
 
 div.buttons {
   margin: 1.5rem 0;
@@ -37,12 +41,16 @@ h2 {
   font-size: 1.5rem;
   line-height: 2rem; }
 
+@media screen and (min-width: 768px) {
+  .score {
+    right: 50%; } }
 .score {
-  /* position:absolute;
-   top: 20vh;
-   right:30vh;*/
+  position: absolute;
+  top: 2rem;
   font-size: 50px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-align: center;
+  right: 44%; }
   .score .negative {
     visibility: visible;
     color: #d74545; }
@@ -54,7 +62,8 @@ h2 {
     content: 'points';
     font-size: initial;
     font-weight: initial;
-    margin-top: 10px; }
+    margin-top: 10px;
+    text-align: center; }
 
 .score.singular::after {
   content: "point" !important; }

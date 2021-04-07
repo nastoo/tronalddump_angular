@@ -7,10 +7,16 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-top: 4rem;
 }
 
+@media screen and (min-width: 768px) {
+  .containerChild {
+    width: 60vw;
+  }
+}
 .containerChild {
-  width: 60vw;
+  width: 85vw;
 }
 
 div.buttons {
@@ -56,12 +62,19 @@ h2 {
   line-height: 2rem;
 }
 
+@media screen and (min-width: 768px) {
+  .score {
+    right:50%;
+  }
+}
 .score {
- /* position:absolute;
-  top: 20vh;
-  right:30vh;*/
+  position:absolute;
+  top: 2rem;
   font-size: 50px;
   font-weight: bold;
+  text-align: center;
+  right:44%;
+
 
   & .negative {
     visibility: visible;
@@ -76,7 +89,8 @@ h2 {
     content:'points';
     font-size: initial;
     font-weight: initial;
-    margin-top: 10px
+    margin-top: 10px;
+    text-align: center;
   }
 }
 
