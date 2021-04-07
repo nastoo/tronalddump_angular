@@ -1,21 +1,71 @@
-nav {
+/*
+nav{
+    z-index: 900;
+
+
+    & a{
+     //   position: absolute;
+        writing-mode: vertical-lr;
+        text-decoration: none;
+        color:#3F9AF5;
+        cursor: pointer;
+        transition:color 0.2s;
+        font-size: large;
+
+       !* &#firstLink{
+            right: 1.5vw;
+            top: 30vh;
+        }
+
+        &#secondLink{
+            right: 1.5vw;
+            top: 40vh;
+        }
+
+        *!
+
+
+        &:hover{
+            color:#0066CC;
+        }
+    }
+}
+
+.main {
+
+
+    nav {
+        position: absolute;
+        top:0;
+        right:0;
+        height: 100vh;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+
+
+
+    }
+}
+
+
+
+*/
+.main {
   position: relative;
-  z-index: 900; }
-  nav a {
-    position: absolute;
+  min-height: 100vh;
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-content: center; }
+  .main nav {
     writing-mode: vertical-lr;
-    text-decoration: none;
-    color: #3F9AF5;
-    cursor: pointer;
-    transition: color 0.2s;
-    font-size: large; }
-    nav a#firstLink {
-      right: 1.5vw;
-      top: 30vh; }
-    nav a#secondLink {
-      right: 1.5vw;
-      top: 40vh; }
-    nav a:hover {
-      color: #0066CC; }
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-top: 5rem; }
+    .main nav a + a {
+      margin-top: 2rem; }
 
 /*# sourceMappingURL=app.component.css.map */

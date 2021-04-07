@@ -14,7 +14,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.component';
 import {MatCardModule} from '@angular/material/card';
 import { SingularTargetComponent } from './singular-target/singular-target.component';
-
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -36,7 +36,8 @@ import { SingularTargetComponent } from './singular-target/singular-target.compo
     MatButtonModule,
     MatToolbarModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

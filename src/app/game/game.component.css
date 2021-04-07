@@ -7,7 +7,7 @@
   position: relative; }
 
 .containerChild {
-  width: 50vw; }
+  width: 60vw; }
 
 div.buttons {
   margin: 1.5rem 0;
@@ -25,11 +25,13 @@ h1.dts {
   font-weight: lighter;
   color: #696d67; }
 
-h2.question {
-  margin-top: 3rem;
-  font-size: 40px;
-  color: #696d67;
-  font-weight: 400; }
+h2 {
+  line-height: 2.5rem; }
+  h2.question {
+    margin-top: 3rem;
+    font-size: 40px;
+    color: #696d67;
+    font-weight: 400; }
 
 .citation {
   font-size: 1.5rem;

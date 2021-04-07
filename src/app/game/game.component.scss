@@ -1,3 +1,5 @@
+
+
 .gameContainer {
   width: 100%;
   height: 100%;
@@ -8,7 +10,7 @@
 }
 
 .containerChild {
-  width: 50vw;
+  width: 60vw;
 }
 
 div.buttons {
@@ -19,7 +21,6 @@ div.buttons {
 
   & button {
     margin-right: 1rem;
-    // background: #0066CC;
     color:#3F9AF5;
     transition:color 0.2s;
 
@@ -47,6 +48,7 @@ h2 {
     color: #696d67;
     font-weight: 400
   }
+  line-height: 2.5rem;
 }
 
 .citation {
