@@ -38,9 +38,9 @@ h2 {
   line-height: 2rem; }
 
 .score {
-  position: absolute;
-  top: 20vh;
-  right: 30vh;
+  /* position:absolute;
+   top: 20vh;
+   right:30vh;*/
   font-size: 50px;
   font-weight: bold; }
   .score .negative {
@@ -55,5 +55,8 @@ h2 {
     font-size: initial;
     font-weight: initial;
     margin-top: 10px; }
+
+.score.singular::after {
+  content: "point" !important; }
 
 /*# sourceMappingURL=game.component.css.map */

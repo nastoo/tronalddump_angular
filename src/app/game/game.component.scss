@@ -57,9 +57,9 @@ h2 {
 }
 
 .score {
-  position:absolute;
+ /* position:absolute;
   top: 20vh;
-  right:30vh;
+  right:30vh;*/
   font-size: 50px;
   font-weight: bold;
 
@@ -77,5 +77,11 @@ h2 {
     font-size: initial;
     font-weight: initial;
     margin-top: 10px
+  }
+}
+
+.score.singular {
+  &::after {
+    content:'point'!important;
   }
 }
