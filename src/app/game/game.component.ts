@@ -160,8 +160,6 @@ export class GameComponent implements OnInit {
     // Feedback après la réponse
     public openDialog() {
         let dialog = this.dialog.open(FeedbackDialogComponent, { data: { isTruly: this.answer, correctSubject: this.citationAuteur }});
-        console.log(this.answer);
-        console.log(this.citationAuteur);
         dialog.afterClosed().subscribe(result => {
             this.getNewQuote();
         })

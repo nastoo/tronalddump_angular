@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { Authors } from '../models/Authors';
 import { Targets } from '../models/Targets';
 import { GetSingleTargetService } from '../service/get-single-target.service';
 
@@ -40,10 +38,8 @@ export class SingularTargetComponent implements OnInit {
           if(this.name.split(" ")[1] == undefined){
             this.imageName = this.name.split(" ")[0];
           }else{
-            this.imageName = this.name.split(" ")[0]+this.name.split(" ")[1];;
+            this.imageName = this.name.split(" ")[0]+this.name.split(" ")[1];
           }
-
-          console.log(this.imageName);
 
           for(let $i:number=0;$i<value.count;$i++){
             this.citations.push(value._embedded.quotes[$i].value);
