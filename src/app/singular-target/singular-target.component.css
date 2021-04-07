@@ -1,26 +1,53 @@
 .singleContainer {
   margin: 5vh 10vw;
+  flex-direction: column;
   column-gap: 2rem;
   display: flex; }
   .singleContainer .image {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-grow: 1; }
+    flex-grow: 1;
+    width: auto;
+    display: flex; }
     .singleContainer .image img {
-      object-fit: contain; }
+      object-fit: contain;
+      width: 80%; }
   .singleContainer .desc {
-    flex-grow: 1; }
+    flex-grow: 1;
+    width: auto; }
     .singleContainer .desc h1 {
-      margin-bottom: 2rem;
+      margin: 2rem 0;
       font-size: 4em;
       font-weight: 500;
-      color: #696d67; }
+      color: #696d67;
+      line-height: 3rem; }
     .singleContainer .desc p {
       font-size: 1.05rem;
       line-height: 2rem; }
     .singleContainer .desc .prev-next {
       text-align: center;
       margin-top: 1rem; }
+
+@media screen and (min-width: 1368px) {
+  .singleContainer {
+    margin: 5vh 20vw; }
+
+  .desc {
+    width: 50% !important; }
+
+  .image {
+    width: 50% !important; } }
+@media screen and (min-width: 768px) {
+  .singleContainer {
+    margin: 5vh 10vw;
+    flex-direction: row; }
+
+  .image {
+    width: 50%;
+    justify-content: center;
+    align-content: center; }
+    .image img {
+      width: 100% !important; }
+
+  .desc {
+    width: 50%; } }
 
 /*# sourceMappingURL=singular-target.component.css.map */
