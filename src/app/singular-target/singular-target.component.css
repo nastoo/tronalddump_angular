@@ -22,6 +22,14 @@
     .singleContainer .desc p {
       font-size: 1.05rem;
       line-height: 2rem; }
+    .singleContainer .desc p::after {
+      content: '';
+      display: block;
+      width: 10%;
+      height: 3px;
+      background: #063175;
+      border-radius: 0 10px 10px 0;
+      margin: 1rem auto; }
     .singleContainer .desc .prev-next {
       text-align: center;
       margin-top: 1rem; }
