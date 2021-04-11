@@ -15,6 +15,7 @@ import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.compo
 import {MatCardModule} from '@angular/material/card';
 import { SingularTargetComponent } from './singular-target/singular-target.component';
 import {MatIconModule} from '@angular/material/icon';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 
@@ -26,6 +27,7 @@ import {MatIconModule} from '@angular/material/icon';
     HistoriqueComponent,
     FeedbackDialogComponent,
     SingularTargetComponent,
+    SearchBarComponent,
 
   ],
   imports: [
