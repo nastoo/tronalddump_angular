@@ -2,26 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
-## Development server
+## Installation
+1. Télécharger et installer nodeJS & npm : https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+2. Télécharger et installer Github-cli : https://github.com/cli/cli
+3. Pour télécharger le projet, ouvrir un terminal / invite de commande :<br/> `git clone https://github.com/nathan-stack/tronalddump_angular`
+4. Ouvrir le projet dans un IDE et exécuter la commande : <br/>
+`npm install`
+5. Pour démarrer le serveur de développement, exécuter la commande <br/>`ng serve`
+6. Pour accéder au site de développement, ouvrir http://localhost:4200
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## API
 
-## Code scaffolding
+Cette application Angular utilise l'API Tronald Dump, accessible ici : https://api.tronalddump.io/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Auteurs
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng getFormInput` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Créé par Nathan Stooss & Jaël Beining, dans le cadre du module Angular du DUT MMI Grenoble (4ème semestre)
