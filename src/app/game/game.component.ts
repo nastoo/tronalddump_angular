@@ -37,6 +37,7 @@ export class GameComponent implements OnInit {
 
         document.getElementById('firstLink').style.color = '#0066CC';
         document.getElementById('secondLink').style.color = '#3F9AF5';
+        document.getElementById('thirdLink').style.color = '#3F9AF5';
 
         this.getNewQuote();
     }

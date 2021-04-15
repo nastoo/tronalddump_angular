@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllTargetsComponent} from './all-targets/all-targets.component';
 import { GameComponent} from './game/game.component';
 import { HistoriqueComponent} from './historique/historique.component';
+import { SearchQuoteComponent } from './search-quote/search-quote.component';
 import { SingularTargetComponent } from './singular-target/singular-target.component';
 
 
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path:'target/:name',
     component:SingularTargetComponent,
+  },
+  {
+    path:'search',
+    component:SearchQuoteComponent,
   }
 ];
 

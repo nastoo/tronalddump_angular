@@ -17,6 +17,7 @@ export class AllTargetsComponent implements OnInit {
 
     document.getElementById('firstLink').style.color = '#3F9AF5';
     document.getElementById('secondLink').style.color = '#0066CC';
+    document.getElementById('thirdLink').style.color = '#3F9AF5';
 
     this.getAllTargets();
 

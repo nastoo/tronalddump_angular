@@ -15,7 +15,6 @@ import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.compo
 import {MatCardModule} from '@angular/material/card';
 import { SingularTargetComponent } from './singular-target/singular-target.component';
 import {MatIconModule} from '@angular/material/icon';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchQuoteComponent } from './search-quote/search-quote.component';
 
 
@@ -28,7 +27,6 @@ import { SearchQuoteComponent } from './search-quote/search-quote.component';
     HistoriqueComponent,
     FeedbackDialogComponent,
     SingularTargetComponent,
-    SearchBarComponent,
     SearchQuoteComponent,
 
   ],
