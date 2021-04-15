@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,WAAY;EACV,UAAU,EAAC,IAAI;;AAGjB,QAAS;EACP,KAAK,EAAE,IAAI;;AAEb,cAAe;EACb,UAAU,EAAE,IAAI;;AAElB,2BAA4B;EAC1B,aAAa,EAAE,IAAI;;AAGrB,WAAY;EACV,UAAU,EAAE,MAAM;;AAGpB,kBAAmB;EACjB,eAAe,EAAE,MAAM;EACvB,MAAM,EAAE,MAAM",
+"sources": ["search-quote.component.scss"],
 "names": [],
 "file": "search-quote.component.css"
 }

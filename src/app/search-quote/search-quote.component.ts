@@ -1,8 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import {GetSingleTargetService} from '../service/get-single-target.service';
-import {Citation} from "../models/Targets";
 
 export interface SearchParams {
     name: string;
@@ -40,19 +38,14 @@ export class SearchQuoteComponent implements OnInit {
                 this.getSingleTargetService.getTargets(value).subscribe({
                     next: el => {
                         this.resultsArray = [];
-                        if(el._embedded == null) {
-                            this.resultsArray.push("There is nothing to display");
-                        } else {
+
                             el._embedded.quotes.forEach(citation => {
                                 this.resultsArray.push(citation.value);
                             })
-                        }
 
                     },
                     error: () => {
                         this.resultsArray.push("There is nothing to display");
-                    },
-                    complete: () => {
                     }
                 });
             }
@@ -60,7 +53,7 @@ export class SearchQuoteComponent implements OnInit {
     }
 
     resetSearch() {
-        this.resultsArray = [];
         this.name.setValue(null);
+        this.resultsArray = [];
     }
 }
