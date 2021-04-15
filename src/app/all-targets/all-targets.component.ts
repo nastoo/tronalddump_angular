@@ -29,12 +29,6 @@ export class AllTargetsComponent implements OnInit {
     this.getAllAuthorsService.getAuthorsList().subscribe(
       (value => {
         this.targetArray = value._embedded.tag;
-
-        this.targetArray.forEach(element => {
-          console.log(element.value);
-        });
-
-        //console.log(this.targetArray);
       })
     );
   }
