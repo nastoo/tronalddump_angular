@@ -11,6 +11,7 @@ export class AllTargetsComponent implements OnInit {
 
   public targetArray: Array<Tag>;
 
+
   constructor(public getAllAuthorsService:GetAllAuthorsService) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class AllTargetsComponent implements OnInit {
   }
 
   public getAllTargets(){
+
     this.getAllAuthorsService.getAuthorsList().subscribe(
       (value => {
         this.targetArray = value._embedded.tag;

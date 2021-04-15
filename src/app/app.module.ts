@@ -16,6 +16,11 @@ import {MatCardModule} from '@angular/material/card';
 import { SingularTargetComponent } from './singular-target/singular-target.component';
 import {MatIconModule} from '@angular/material/icon';
 import { SearchQuoteComponent } from './search-quote/search-quote.component';
+import {ReactiveFormsModule} from "@angular/forms";
+
+
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -30,17 +35,20 @@ import { SearchQuoteComponent } from './search-quote/search-quote.component';
     SearchQuoteComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatDialogModule,
-    MatCardModule,
-    MatIconModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatDialogModule,
+        MatCardModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [FeedbackDialogComponent]
