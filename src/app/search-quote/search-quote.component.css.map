@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,WAAY;EACV,UAAU,EAAE,IAAI;;AAGlB,gBAAiB;EACf,KAAK,EAAE,IAAI;;AAGb,QAAS;EACP,KAAK,EAAE,IAAI;;AAGb,cAAe;EACb,UAAU,EAAE,IAAI;;AAGlB,2BAA4B;EAC1B,aAAa,EAAE,IAAI;;AAGrB,WAAY;EACV,UAAU,EAAE,MAAM;;AAGpB,kBAAmB;EACjB,eAAe,EAAE,MAAM;EACvB,MAAM,EAAE,MAAM;;AAGhB,oCAAqC;EACnC,gBAAiB;IACf,KAAK,EAAE,IAAI",
-"sources": ["search-quote.component.scss"],
-"names": [],
-"file": "search-quote.component.css"
-}
