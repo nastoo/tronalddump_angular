@@ -17,4 +17,4 @@ Cette application Angular utilise l'API Tronald Dump, accessible ici : https://a
 
 ## Auteurs
 
-Créé par @nastoo & @Jaakx, dans le cadre du module Angular du DUT MMI Grenoble (4ème semestre)
+Créé par @nastoo & @Jaakkx, dans le cadre du module Angular du DUT MMI Grenoble (4ème semestre)
